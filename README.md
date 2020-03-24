@@ -20,3 +20,6 @@
 ##### 5. Test de hipotesis
 ######      - Script -> ["testDeHipotesis.m"](https://github.com/sergiocamara/clustering/blob/master/testDeHipotesis.m)
 ######       - Salida -> Por consola, análisis de varianza entre grupos y productos.
+
+
+######## Este trabajo ha sido desarrollado por **Sergio Cámara Sevilla** en relación a la asignatura del Máster en Informática, Desarrollo de Sistemas Inteligentes de la Escuela Superior de Informática de Ciudad Real, impartida por el profesor **Ricardo García Ródenas**
