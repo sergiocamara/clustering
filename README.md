@@ -1,4 +1,4 @@
-# clustering
+# Clustering Minoristas Fuzzy C-means
 
 ##### 1. Detección de número óptimo de cluster mediante algoritmo BIC
 ######       - Script -> ["BICFuzzyCmeans.m"](https://github.com/sergiocamara/clustering/blob/master/BICFuzzyCmeans.m)
