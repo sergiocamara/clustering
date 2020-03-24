@@ -1,6 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Carga   d e   d a t o s 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+load('minoristasSinOutliers.mat')%cargamos los datos sin outliers
 load('arraycidx.mat') % cargamos los centroides
 
 GRUPO1=(X(cidx==1,:));
