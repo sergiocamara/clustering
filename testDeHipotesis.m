@@ -2,31 +2,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Carga   d e   d a t o s 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-load('minoristasSinOutliers.mat')
+load('minoristasSinOutliers.mat')%cargamos los datos sin outliers
+load('arraycidx.mat') % cargamos los centroides
 
-K=5;                       % Número óptimo de clusters
-m=2;                       % parámetro de fcm, 2 es el defecto
-MaxIteraciones=100;        % número de iteraciones
-Tolerancia= 1e-5;          % tolerancia en el criterio de para
-Visualizacion=0;           % 0/1
-opciones=[m,MaxIteraciones,Visualizacion];
-[center,U,obj_fcn] = fcm(X, K,opciones);
-%%%%%%%
-% p a r á m e t r o s   d e   s a l i d a              
-% center    centroides de los grupos
-% U         matriz de pertenencia individuo cluster 
-% obj_fun   función objetivo
-%%%%%%  Asignación de individuo a grupo, maximizando el nivel de
-%       pertenencia al grupo
-for i=1:K
-maxU=max(U); % calculo del máximo nivel de pertenencia de los
-             % individuos
-individuos=find(U(i,:)==maxU);% calcula los individuos del
-                              % grupo i que alcanzan el máximo
-cidx(individuos)=i;           % asigna estos individuos al grupo i
-%grado_pertenecia(individuos)=maxU(individuos);
-  
-end
 
 GRUPO1=(X(cidx==1,:));
 GRUPO2=(X(cidx==2,:));
@@ -40,6 +18,7 @@ for i=1: size(X,2)
     pproducto = anova1(X(:,i),cidx); % blúce análisis de varianza por producto
     texto = sprintf('\n\nanova -> %s p=% d',productosNombre{i},pproducto);
     disp(texto);
+    title(productosNombre{i});
     if pproducto<0.05 %comparación de valor de probabilidad para determinar la varianza
         [p12,h12]= ranksum(GRUPO1(:,i),GRUPO2(:,i)); % analisis de la varianza entre grupos por columna
         texto1 = sprintf('ranksum -> GRUPO 1-2     p = %d | h =% d',p12,h12);
